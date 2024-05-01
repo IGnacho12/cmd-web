@@ -1,0 +1,43 @@
+---
+import Layout from "../layouts/Layout.astro";
+import File from "../components/File.astro";
+---
+
+<Layout title="Descarga tus archivos .cmd">
+  <main class="flex flex-col">
+    <h1>Descarga tus malware necesarios 🎮</h1>
+
+    <div class="grid grid-cols-3">
+      <File
+        title="so many cmd!"
+        danger="peligroso"
+        behavior="Abre 30 cmd en el sistema"
+      />
+
+      <File
+        title="bad cmd"
+        danger="fatal"
+        behavior="Abre 100 cmd en el sistema"
+      />
+
+      <File
+        title="very bad cmd"
+        danger="fatal"
+        behavior="Abre 1000 cmd en el sistema"
+      />
+
+      <File
+        title="password theft"
+        danger="peligroso"
+        behavior="abre un archivo que contiene una contraseña"
+      />
+
+      <File
+        title="password theft.v2"
+        danger="fatal"
+        behavior="consigue todas las contraseñas del sistema"
+      />
+    </div>
+  </main>
+</Layout>
+
