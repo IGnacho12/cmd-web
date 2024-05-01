@@ -2,18 +2,18 @@
 const { title, danger, behavior } = Astro.props;
 ---
 
-<div 
-  class="min-w-[160px] max-w-[160px] overflow-clip flex flex-col p-2 relative transition-all"
+<div
+  class="mt-8 min-w-[160px] max-w-[160px] min-h-[128px] overflow-clip flex flex-col p-2 relative "
 >
   <h1 class="mt-3 text-wrap mr-3">{title}</h1>
 
   <span
     id="danger"
-    class="w-fit px-2 rounded-xl select-none absolute right-2 top-1"
+    class="w-fit px-2 rounded-lg select-none absolute right-2 top-1 font-bold"
     >{danger}</span
   >
 
-  <button id="show-behavior"> Comportamiento ↓ </button>
+  <button class="" id="show-behavior" title="Ver comportamiento"> ?? </button>
 
   <p class="hidden" id="behavior-p">{behavior}</p>
 </div>
@@ -70,8 +70,42 @@ const { title, danger, behavior } = Astro.props;
   }
 
   button {
+	width: fit-content;
     border-bottom: solid 2px var(--primary);
     font-size: 15px;
   }
 </style>
 
+<script>
+  const BUTTON_SHOW = document.querySelectorAll("#show-behavior");
+  const SPAN_BEHAVIOR = document.querySelectorAll("#danger");
+  SPAN_BEHAVIOR.forEach((x) => {
+    console.log(x.textContent);
+
+    if (x.textContent === "seguro") {
+      // @ts-ignore:
+      x.style.backgroundColor = "rgba(0, 255, 0, 0.7)";
+    }
+    if (x.textContent === "peligroso") {
+      // @ts-ignore:
+      x.style.backgroundColor = "rgba(255, 240, 0, 0.7)";
+    }
+    if (x.textContent === "fatal") {
+      // @ts-ignore:
+      x.style.backgroundColor = "rgba(255, 0, 0, 0.7)";
+    }
+  });
+
+  // Función para mostrar el parrafo con id behavior-p
+  BUTTON_SHOW.forEach((button) => {
+    button.addEventListener("click", () => {
+      // Obtiene el parrafo con id behavior-p
+      const behaviorParagraph = button.nextElementSibling; // Obtiene el siguiente hermano del botón, que es el párrafo con id behavior-p
+
+      // Obtiene el texto dentro del párrafo
+      const behavior = behaviorParagraph?.textContent;
+      behaviorParagraph?.classList.toggle("hidden");
+      console.log(behavior);
+    });
+  });
+</script>
