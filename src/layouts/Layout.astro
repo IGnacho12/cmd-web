@@ -21,7 +21,6 @@ const { title } = Astro.props;
   </body>
 </html>
 <style is:global>
-
   /* Fuente Poppins */
   @font-face {
     font-family: "Poppins";
@@ -109,10 +108,20 @@ const { title } = Astro.props;
     box-shadow: 0 20px 50px -10px var(--primary);
   }
 
-  /* estilo para deaparecer la barra de scroll */
-  body::-webkit-scrollbar {
+  /* Estilos de Scroll Bar */
+  ::-webkit-scrollbar {
     width: 10px;
-    background-color: white;
+    background-color: var(--background);
   }
-</style>
 
+  ::-webkit-scrollbar-thumb {
+    background-color: var(--primary);
+    border-radius: 4px;
+    transition: 0.3s;
+  }
+
+  ::-webkit-scrollbar-thumb:active {
+    background-color: var(--text);
+  }
+
+</style>
