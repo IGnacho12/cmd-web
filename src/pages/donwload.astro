@@ -1,9 +1,11 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import File from "../components/File.astro";
+import GoBack from "../components/goBack.astro";
 ---
 
 <Layout title="Descarga tus archivos .cmd">
+  <GoBack />
   <main class="flex flex-col">
     <h1>Descarga tus malware necesarios 🎮</h1>
 
@@ -11,7 +13,7 @@ import File from "../components/File.astro";
       <File
         fileId="1"
         title="so many cmd!"
-        danger="peligroso"
+        danger="severo"
         behavior="Abre 30 cmd en el sistema"
         value="1"
       />
