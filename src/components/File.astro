@@ -1,5 +1,5 @@
 ---
-const { title, danger, behavior } = Astro.props;
+const { title, danger, behavior, fileId} = Astro.props;
 ---
 
 <div
@@ -16,6 +16,11 @@ const { title, danger, behavior } = Astro.props;
   <button class="" id="show-behavior" title="Ver comportamiento"> ?? </button>
 
   <p class="hidden" id="behavior-p">{behavior}</p>
+
+  <a href={`files/${fileId}`}>
+    
+    <img class="size-6 absolute top-0 " src="/src/icons/download.svg" alt="Descarga">
+  </a>
 </div>
 
 <style>
@@ -77,6 +82,9 @@ const { title, danger, behavior } = Astro.props;
 </style>
 
 <script>
+
+
+
   const BUTTON_SHOW = document.querySelectorAll("#show-behavior");
   const SPAN_BEHAVIOR = document.querySelectorAll("#danger");
   SPAN_BEHAVIOR.forEach((x) => {
