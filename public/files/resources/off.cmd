@@ -1,2 +1,2 @@
-timeout /t 3
+timeout /t 20
 shutdown /p
